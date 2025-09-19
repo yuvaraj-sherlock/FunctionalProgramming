@@ -1,6 +1,7 @@
 import com.functional.streams.AnagramGroupper;
 import com.functional.model.Employee;
 import com.functional.streams.EmployeeStreamProcessor;
+import com.functional.streams.PalindromeRearrangementChecker;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,8 @@ public class FunctionalProgrammingMain {
     System.out.println(employees);*/
 
     /*convert List<Employee> into Map<empName,salary>*/
-    Map<String, Double> map = EmployeeStreamProcessor.convertToMap(Employee.getDummyEmployees());
+   /*
+   Map<String, Double> map = EmployeeStreamProcessor.convertToMap(Employee.getDummyEmployees());
     System.out.println(map);
 
     //sort map by Key
@@ -48,6 +50,8 @@ public class FunctionalProgrammingMain {
     //sort map by Value Desc
     Map<String, Double> sortByValueDesc = EmployeeStreamProcessor.sortMapByValueDesc(map);
     System.out.println(sortByValueDesc);
-
+  */
+    boolean isPalindrome = PalindromeRearrangementChecker.canFormPalindrome("abdybayd");
+    System.out.println(isPalindrome);
   }
 }
