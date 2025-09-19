@@ -4,9 +4,8 @@ import com.functional.streams.EmployeeStreamProcessor;
 import com.functional.streams.GroupingByProcessor;
 import com.functional.streams.PalindromeRearrangementChecker;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FunctionalProgrammingMain {
@@ -73,8 +72,21 @@ public class FunctionalProgrammingMain {
             .collect(Collectors.groupingBy(name -> name.charAt(0)));
     System.out.println(collect);*/
 
-    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+   /* List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
     Map<String, List<Integer>> stringListMap = GroupingByProcessor.groupByEvenOdd(numbers);
-    System.out.println(stringListMap);
+    System.out.println(stringListMap);*/
+
+    //Find first nonrepeating character
+    String str = "swiss";
+    LinkedHashMap<Character, Long> collect = str.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
+    System.out.println(collect);
+
+    Optional<Map.Entry<Character, Long>> first = collect.entrySet()
+            .stream()
+            .filter((entry) -> entry.getValue() == 1)
+            .findFirst();
+    System.out.println(first.get().getKey());
   }
 }
