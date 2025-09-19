@@ -1,11 +1,13 @@
 import com.functional.streams.AnagramGroupper;
 import com.functional.model.Employee;
 import com.functional.streams.EmployeeStreamProcessor;
+import com.functional.streams.GroupingByProcessor;
 import com.functional.streams.PalindromeRearrangementChecker;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FunctionalProgrammingMain {
   public static void main(String[] args) {
@@ -14,6 +16,7 @@ public class FunctionalProgrammingMain {
     Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
       Output: [["bat"], ["tan", "nat"], ["eat", "tea", "ate"]]
     */
+
     /*
     List<String> list = Arrays.asList("eat", "tea", "tan", "ate", "nat", "bat");
     List<List<String>> list1 = AnagramGroupper.groupAnagram(list);
@@ -27,6 +30,7 @@ public class FunctionalProgrammingMain {
     ·Converts their names to UPPERCASE
     ·Sorts the list by name in descending order
     ·Returns the result as a List<Emp>*/
+
     /*List<Employee> employees = EmployeeStreamProcessor.processEmployees(Employee.getDummyEmployees());
     System.out.println(employees);*/
 
@@ -51,7 +55,26 @@ public class FunctionalProgrammingMain {
     Map<String, Double> sortByValueDesc = EmployeeStreamProcessor.sortMapByValueDesc(map);
     System.out.println(sortByValueDesc);
   */
-    boolean isPalindrome = PalindromeRearrangementChecker.canFormPalindrome("abdybayd");
-    System.out.println(isPalindrome);
+
+    //Can Palindrome be formed?
+   /* boolean isPalindrome = PalindromeRearrangementChecker.canFormPalindrome("abdybayd");
+    System.out.println(isPalindrome);*/
+
+    /*Map<String, List<Employee>> empListByCity =
+            GroupingByProcessor.groupOfEmployeesByCity(Employee.getDummyEmployees());
+    System.out.println(empListByCity);
+
+    Map<String, List<String>> nameListByCity =
+            GroupingByProcessor.nameOfEmployeesByCity(Employee.getDummyEmployees());
+    System.out.println(nameListByCity);*/
+
+   /* List<String> names = Arrays.asList("Alice", "Adam", "Bob", "Brian","Charlie");
+    Map<Character, List<String>> collect = names.stream()
+            .collect(Collectors.groupingBy(name -> name.charAt(0)));
+    System.out.println(collect);*/
+
+    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+    Map<String, List<Integer>> stringListMap = GroupingByProcessor.groupByEvenOdd(numbers);
+    System.out.println(stringListMap);
   }
 }

@@ -19,12 +19,12 @@ public class EmployeeStreamProcessor {
   public static List<Employee> processEmployees(List<Employee> list){
     System.out.println("Given list of employees:");
     list.stream()
-            .forEach(emp-> System.out.println(emp.getName()+"("+emp.getSalary()+")"));
+            .forEach(emp-> System.out.println(emp.getName()+"("+emp.getSalary()+")"+emp.getCity()));
     System.out.println("*".repeat(20));
 
     List<Employee> collect = list.stream()
             .filter(emp -> emp.getSalary() > 50000)
-            .map(emp ->  new Employee(emp.getName().toUpperCase(),emp.getSalary()))
+            .map(emp ->  new Employee(emp.getName().toUpperCase(),emp.getSalary(),emp.getCity()))
             .sorted(Comparator.comparing(Employee :: getName).reversed())
             .collect(Collectors.toList());
     return collect;
