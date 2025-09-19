@@ -1,8 +1,5 @@
-import com.functional.streams.AnagramGroupper;
+import com.functional.streams.*;
 import com.functional.model.Employee;
-import com.functional.streams.EmployeeStreamProcessor;
-import com.functional.streams.GroupingByProcessor;
-import com.functional.streams.PalindromeRearrangementChecker;
 
 import java.util.*;
 import java.util.function.Function;
@@ -77,28 +74,11 @@ public class FunctionalProgrammingMain {
     System.out.println(stringListMap);*/
 
     //Find first nonrepeating character
-    /*String str = "swiss";
-    LinkedHashMap<Character, Long> collect = str.chars()
-            .mapToObj(c -> (char) c)
-            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
-    System.out.println(collect);
-
-    Optional<Map.Entry<Character, Long>> first = collect.entrySet()
-            .stream()
-            .filter((entry) -> entry.getValue() == 1)
-            .findFirst();
-    System.out.println(first.get().getKey());*/
+    /*char ch = StringUtility.findFirstNonRepeatingCharacter("swiss");
+    System.out.println(ch);*/
 
     //To remove duplicates from the given String
-    String str = "hello world";
-    Set<Character> collect = str.chars().mapToObj(c -> (char) c)
-            .filter(c -> c != ' ')
-            .collect(Collectors.toCollection(LinkedHashSet::new));
-    System.out.println(collect);
-
-    String collect1 = collect.stream()
-            .map(String::valueOf)
-            .collect(Collectors.joining());
-    System.out.println(collect1);
+    /*String str = StringUtility.removeDuplicates("helloworld");
+    System.out.println(str);*/
   }
 }
