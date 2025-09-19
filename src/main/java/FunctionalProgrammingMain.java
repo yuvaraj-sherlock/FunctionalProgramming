@@ -77,7 +77,7 @@ public class FunctionalProgrammingMain {
     System.out.println(stringListMap);*/
 
     //Find first nonrepeating character
-    String str = "swiss";
+    /*String str = "swiss";
     LinkedHashMap<Character, Long> collect = str.chars()
             .mapToObj(c -> (char) c)
             .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
@@ -87,6 +87,18 @@ public class FunctionalProgrammingMain {
             .stream()
             .filter((entry) -> entry.getValue() == 1)
             .findFirst();
-    System.out.println(first.get().getKey());
+    System.out.println(first.get().getKey());*/
+
+    //To remove duplicates from the given String
+    String str = "hello world";
+    Set<Character> collect = str.chars().mapToObj(c -> (char) c)
+            .filter(c -> c != ' ')
+            .collect(Collectors.toCollection(LinkedHashSet::new));
+    System.out.println(collect);
+
+    String collect1 = collect.stream()
+            .map(String::valueOf)
+            .collect(Collectors.joining());
+    System.out.println(collect1);
   }
 }
