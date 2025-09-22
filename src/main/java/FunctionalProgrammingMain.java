@@ -80,5 +80,7 @@ public class FunctionalProgrammingMain {
     //To remove duplicates from the given String
     /*String str = StringUtility.removeDuplicates("helloworld");
     System.out.println(str);*/
+
+    CustomPatternUtility.arraySortAndSwapPattern(new Integer[]{36,11,6,9,45,4});
   }
 }
