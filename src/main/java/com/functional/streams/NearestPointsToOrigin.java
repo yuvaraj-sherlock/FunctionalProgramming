@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -28,10 +29,12 @@ public class NearestPointsToOrigin {
             new Point(1, 1),
             new Point(7, 9)
     );
-    //dist = sqrt((x1-x2)^2 + (y1-y2)^2)
 
-    Collections.sort(points,Comparator.comparingDouble(Point::distanceFromOrigin));
-    System.out.println(points);
+    List<Point> collect = points.stream()
+            .sorted(Comparator.comparingDouble(Point::distanceFromOrigin))
+            .collect(Collectors.toList());
+    System.out.println(collect);
+
 
   }
 }
