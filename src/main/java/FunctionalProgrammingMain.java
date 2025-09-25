@@ -81,6 +81,13 @@ public class FunctionalProgrammingMain {
     /*String str = StringUtility.removeDuplicates("helloworld");
     System.out.println(str);*/
 
-    CustomPatternUtility.arraySortAndSwapPattern(new Integer[]{36,11,6,9,45,4});
+   // CustomPatternUtility.arraySortAndSwapPattern(new Integer[]{36,11,6,9,45,4});
+
+    //String output = "h-5", "a-4","j-3","b-2","d-1";
+   // StringUtility.stringPattern1("hhhhhaaaaqqqqbbwwjjjmmmdy");
+    String sumNumber = "123456789";
+    int sum = sumNumber.chars().map(Character::getNumericValue)
+            .sum();
+    System.out.println(sum);
   }
 }
